@@ -1,25 +1,25 @@
 <?php
 /**
- * Frequently Asked Questions Custom Post Type.
+ * Event Functionality Custom Post Type.
  *
- * @package     CarmeMias\FAQsFunctionality
- * @author      carmemias
+ * @package     yjohn\EventFunctionality
+ * @author      yohannes
  * @copyright   2017 Carme Mias Studio
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
- * Plugin Name: Frequently Asked Questions Custom Post Type
- * Plugin URI:  http://carmemias.com
- * Description: Adds a new FAQs section and custom post type.
- * Version:     1.5.0
- * Author:      carmemias
- * Author URI:  http://carmemias.com
- * Text Domain: faqs-functionality
+ * Plugin Name: Event Functionality Custom Post Type
+ * Plugin URI:  http://yohannes.ismysite.co.uk
+ * Description: Adds a new Events section and custom post type.
+ * Version:     1.0
+ * Author:      yohannes
+ * Author URI:  http://yohannes.ismysite.co.uk
+ * Text Domain: events-functionality
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-namespace CarmeMias\FAQsFunctionality;
+namespace yjohn\EventFunctionality;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Access denied.' );
@@ -39,8 +39,8 @@ function init_constants() {
 	}
 
 	//OPTIMIZE using constants like these is not recommended by WP Theme review team
-	define( 'FAQ_FUNCTIONALITY_URL', $plugin_url );
-	define( 'FAQ_FUNCTIONALITY_DIR', plugin_dir_path( __DIR__ ) );
+	define( 'Event_FUNCTIONALITY_URL', $plugin_url );
+	define( 'Event_FUNCTIONALITY_DIR', plugin_dir_path( __DIR__ ) );
 }
 
 /**
@@ -65,7 +65,7 @@ function init_hooks() {
 function flush_rewrites() {
 	init_autoloader();
 
-	src\cm_faq_cpt();
+	src\cm_event_cpt();
 
 	flush_rewrite_rules();
 }
