@@ -1,0 +1,82 @@
+/*
+* Stylesheet for the cm_faqs shortcode view
+*********************************************/
+
+.category-title {
+	margin-bottom: 1.2em;
+}
+
+#accordion {
+	margin-bottom: 25px;
+}
+
+#accordion > article.cm_faq {
+	padding-bottom:0;
+	margin-bottom: 10px;
+}
+
+#accordion > article.has-shadow {
+	border: 1px solid #ccc;
+	box-shadow: #ccc 2px 2px 5px;
+	-webkit-box-shadow: #ccc 2px 2px 5px;
+	-moz-box-shadow: #ccc 2px 2px 5px;
+}
+
+#accordion > article.cm_faq .entry-header {
+	background-color:#fdfdfd;
+	border-bottom: 1px solid #ccc;
+	padding:5px;
+	margin-bottom: 15px;
+	transition: padding-top 200ms, padding-left 200ms;
+}
+
+#accordion > article.cm_faq .entry-header:hover,
+#accordion > article.cm_faq .entry-header:focus {
+	position:relative;
+	padding-top: 7px;
+	padding-left: 7px;
+	box-shadow: #ccc 2px 2px 5px;
+	-webkit-box-shadow: #ccc 2px 2px 5px;
+	-moz-box-shadow: #ccc 2px 2px 5px;
+}
+
+#accordion > article.cm_faq h3.entry-title {
+	margin-top:0;
+}
+
+#accordion > article.cm_faq .grey-background {
+	border:0;
+	border-bottom: 1px solid #ccc;
+	background-color:#eee;
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+#accordion > article.cm_faq .entry-title {
+	font-size: 1em;
+	font-weight: normal;
+}
+
+#accordion > article.cm_faq .entry-title a {
+	max-width:100%;
+	padding-right:10px;
+}
+
+#accordion > article.cm_faq .entry-title .dashicons {
+	float:right;
+	margin-left:5px;
+}
+
+#accordion > article.cm_faq .entry-content.collapse {
+	display: none;
+	opacity: 0;
+	padding-left:0;
+	transition: padding-left 200ms, opacity 200ms;
+}
+
+#accordion > article.cm_faq .entry-content.collapse.in {
+	display: block;
+  	opacity: 1;
+	padding-left: 5px;
+	padding-top:10px;
+}
