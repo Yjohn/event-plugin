@@ -1,5 +1,5 @@
 /*
-* Functionality for the FAQs shortcode view
+* Functionality for the Events shortcode view
 * This shouldn't run until the page content has been built
 */
 (function() {
@@ -9,28 +9,28 @@
 	function docReady(event){ 
 		event.preventDefault();
 		/*
-		* Add event listener to each FAQ header in the page
+		* Add event listener to each Event header in the page
 		*/
-		var faqs = document.querySelectorAll('#accordion article');
+		var events = document.querySelectorAll('#accordion article');
 	
-		for(let faq of faqs){ 
+		for(let event of events){ 
 			//adds event listener to header
-			faq.querySelector('header').addEventListener('click', toggleFAQ);
+			event.querySelector('header').addEventListener('click', toggleEvent);
 		}
 
 		/*
-		* Shows/Hides the FAQ answer when the FAQ header is clicked.
+		* Shows/Hides the Event answer when the Event header is clicked.
 		*/
-		function toggleFAQ(event){
+		function toggleEvent(event){
 			event.preventDefault();
 		
-			//faq header background turns grey when not collapsed
+			//event header background turns grey when not collapsed
 			this.classList.toggle('grey-background');
 			this.parentElement.classList.toggle('has-shadow');
 	
-			//faq content shows when not collapsed
-			let faqContent = this.nextElementSibling;
-			faqContent.classList.toggle('in');
+			//event content shows when not collapsed
+			let eventContent = this.nextElementSibling;
+			eventContent.classList.toggle('in');
 	
 			//a tag reflects changes too
 			let aTag = this.querySelector('a');
@@ -42,7 +42,7 @@
 				aTag.setAttribute('aria-expanded', 'true');
 			}
 	
-			//svg icon changes depending on whether faq is collapsed or not
+			//svg icon changes depending on whether event is collapsed or not
 			let dashIcon = this.querySelector('.dashicons');
 			dashIcon.classList.toggle('dashicons-arrow-down-alt2');
 			dashIcon.classList.toggle('dashicons-arrow-up-alt2');

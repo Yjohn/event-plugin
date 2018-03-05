@@ -2,14 +2,14 @@
 /**
  * Events Custom Post Type.
  *
- * @package     Yohannes\EventsFunctionality\src
- * @author      Yohannes
+ * @package     CarmeMias\EventsFunctionality\src
+ * @author      CarmeMias
  * @copyright   2018 Yjohn
  * @license     GPL-2.0+
  *
  */
 
-namespace yohannes\EventsFunctionality\src;
+namespace CarmeMias\EventsFunctionality\src;
 
 add_action( 'init', __NAMESPACE__ . '\cm_event_cpt' );
 /**

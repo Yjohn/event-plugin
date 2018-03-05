@@ -1,35 +1,35 @@
 <?php
 /**
- * Shortcode functionality for the FAQs Custom Post Type.
+ * Shortcode functionality for the Events Custom Post Type.
  *
- * @package     CarmeMias\FAQsFunctionality\src
+ * @package     CarmeMias\EventsFunctionality\src
  * @author      carmemias
- * @copyright   2017 Carme Mias Studio
+ * @copyright   2018 Carme Mias Studio
  * @license     GPL-2.0+
  *
  */
 
-namespace CarmeMias\FAQsFunctionality\src;
+namespace CarmeMias\EventsFunctionality\src;
 
 //See https://wordpress.stackexchange.com/questions/165754/enqueue-scripts-styles-when-shortcode-is-present
 /*
 * Enqueue javascript and stylesheet files used by the shortcode view
 */
-function cm_faqs_shortcode_enqueue_scripts(){
-	wp_register_style('faqs_shortcode_style', FAQ_FUNCTIONALITY_URL . '/src/assets/css/faqs_shortcode_style.css');
-	wp_register_script('faqs_shortcode_script', FAQ_FUNCTIONALITY_URL . '/src/assets/js/faqs_shortcode_script.js');
+function cm_events_shortcode_enqueue_scripts(){
+	wp_register_style('events_shortcode_style', Event_FUNCTIONALITY_URL . '/src/assets/css/events_shortcode_style.css');
+	wp_register_script('events_shortcode_script', Event_FUNCTIONALITY_URL . '/src/assets/js/events_shortcode_script.js');
 	
 	//OPTIMIZE this currently loads the script and style on all pages. It could be improved by loading themonly if a shortcut is present
-	wp_enqueue_style( 'faqs_shortcode_style' );
-	wp_enqueue_script( 'faqs_shortcode_script' );
+	wp_enqueue_style( 'events_shortcode_style' );
+	wp_enqueue_script( 'events_shortcode_script' );
 }
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\cm_faqs_shortcode_enqueue_scripts');	
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\cm_events_shortcode_enqueue_scripts');	
 
 
-//[faqs category="category-slug|category name"] category attrib value not case sensitive
-function cm_faqs_shortcode_handler( $atts ){
+//[events category="category-slug|category name"] category attrib value not case sensitive
+function cm_events_shortcode_handler( $atts ){
 	$results_array = [];
-	$cm_faq_categories = [];
+	$cm_event_categories = [];
 	$output_string = '';
 	
 	//the default value for category
@@ -42,7 +42,7 @@ function cm_faqs_shortcode_handler( $atts ){
 		
 		//the category attribute has been set
 		//does this category exist?
-		$category_ID = term_exists($a['category'],'faq-category');
+		$category_ID = term_exists($a['category'],'event-category');
 		if( is_array($category_ID) ){ $category_ID = array_shift($category_ID);}
 		
 		//if the category doesn't exist, return error message
@@ -54,31 +54,31 @@ function cm_faqs_shortcode_handler( $atts ){
 		} 
 		
 		//finds the category object, returns an array with a single object
-		$cm_faq_categories = get_terms( array( 'taxonomy' => 'faq-category', 'include' => $category_ID));
+		$cm_event_categories = get_terms( array( 'taxonomy' => 'event-category', 'include' => $category_ID));
 		
 	} else {
 		
-		//no arguments have been set by the Editor, so all FAQs will be listed grouped by category and in the order specified.
- 	    $cm_faq_categories = get_terms( array( 'taxonomy' => 'faq-category', 'hide_empty' => false ) );
+		//no arguments have been set by the Editor, so all Events will be listed grouped by category and in the order specified.
+ 	    $cm_event_categories = get_terms( array( 'taxonomy' => 'event-category', 'hide_empty' => false ) );
 		
 	} 
 	
-	if ( ! empty( $cm_faq_categories ) && ! is_wp_error( $cm_faq_categories ) ){
-		foreach ( $cm_faq_categories as $category_obj ) {
+	if ( ! empty( $cm_event_categories ) && ! is_wp_error( $cm_event_categories ) ){
+		foreach ( $cm_event_categories as $category_obj ) {
 			$single_result_obj=[];
 				
-			$cm_faq_args = array ('post_type' => 'cm_faq',
+			$cm_event_args = array ('post_type' => 'cm_event',
  						 	'post_status' => 'publish',
-							'faq-category' => $category_obj->slug,
+							'event-category' => $category_obj->slug,
 							 'order' => 'ASC',
 							 'orderby' => 'meta_value_num',
-							 'meta_key' => '_cm_faq_order',
+							 'meta_key' => '_cm_event_order',
 							 'posts_per_page' => -1);	
 	
-			$cm_faqs = get_posts( $cm_faq_args ); //returns an array
+			$cm_events = get_posts( $cm_event_args ); //returns an array
 			
-			//create a $result array combining the faq-category and the corresponding faqs
-			$single_result_obj = [ 'category' => $category_obj,'questions' => $cm_faqs ];
+			//create a $result array combining the event-category and the corresponding events
+			$single_result_obj = [ 'category' => $category_obj,'questions' => $cm_events ];
 	
 			//$results_array = [['category' => $category_obj,'questions' => $questions]]
 			array_push($results_array,$single_result_obj);
@@ -102,11 +102,11 @@ function cm_faqs_shortcode_handler( $atts ){
 			$question_ID = $question->ID;
 			$question_title = get_the_title($question_ID);
 			$answer = apply_filters( 'the_content', get_the_content() );
-			$question_order = get_post_meta( get_the_ID(), '_cm_faq_order', true );
+			$question_order = get_post_meta( get_the_ID(), '_cm_event_order', true );
 			
 	    	if(( $question_order != 'hidden' ) && ( $question_order != 'not set' )){
 				
-				$output_substring .= '<article id="post-' . $question_ID . '" class="post-' . $question_ID . ' cm_faq type-cm_faq status-publish hentry faq-category-' . $category_slug . '" >';
+				$output_substring .= '<article id="post-' . $question_ID . '" class="post-' . $question_ID . ' cm_event type-cm_event status-publish hentry event-category-' . $category_slug . '" >';
 				$output_substring .= '<header class="entry-header" role="tab" id="heading-' . $question_ID . '">';
 				$output_substring .= '<h3 class="entry-title"><a role="button" class="collapsed" data-parent="#accordion" href="#collapse-'. $question_ID .'" aria-expanded="false" aria-controls="collapse-'. $question_ID .'">';
 				$output_substring .= $question_title;
@@ -133,6 +133,6 @@ function cm_faqs_shortcode_handler( $atts ){
 	 
   }
 
-add_shortcode( 'faqs', __NAMESPACE__ . '\cm_faqs_shortcode_handler');
+add_shortcode( 'events', __NAMESPACE__ . '\cm_events_shortcode_handler');
 
 ?>

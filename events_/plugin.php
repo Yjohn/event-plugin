@@ -2,24 +2,24 @@
 /**
  * Event Functionality Custom Post Type.
  *
- * @package     yjohn\EventFunctionality
- * @author      yohannes
+ * @package     carmemias\EventFunctionality
+ * @author      carmemias
  * @copyright   2017 Carme Mias Studio
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
  * Plugin Name: Event Functionality Custom Post Type
- * Plugin URI:  http://yohannes.ismysite.co.uk
+ * Plugin URI:  https://carmemias.com/
  * Description: Adds a new Events section and custom post type.
  * Version:     1.0
- * Author:      yohannes
- * Author URI:  http://yohannes.ismysite.co.uk
+ * Author:      carmemias
+ * Author URI:  https://carmemias.com/
  * Text Domain: events-functionality
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-namespace yjohn\EventFunctionality;
+namespace carmemias\EventFunctionality;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Access denied.' );

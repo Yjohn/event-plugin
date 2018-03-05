@@ -1,5 +1,5 @@
 /*
-* Stylesheet for the cm_faqs shortcode view
+* Stylesheet for the cm_events shortcode view
 *********************************************/
 
 .category-title {
@@ -10,7 +10,7 @@
 	margin-bottom: 25px;
 }
 
-#accordion > article.cm_faq {
+#accordion > article.cm_event {
 	padding-bottom:0;
 	margin-bottom: 10px;
 }
@@ -22,7 +22,7 @@
 	-moz-box-shadow: #ccc 2px 2px 5px;
 }
 
-#accordion > article.cm_faq .entry-header {
+#accordion > article.cm_event .entry-header {
 	background-color:#fdfdfd;
 	border-bottom: 1px solid #ccc;
 	padding:5px;
@@ -30,8 +30,8 @@
 	transition: padding-top 200ms, padding-left 200ms;
 }
 
-#accordion > article.cm_faq .entry-header:hover,
-#accordion > article.cm_faq .entry-header:focus {
+#accordion > article.cm_event .entry-header:hover,
+#accordion > article.cm_event .entry-header:focus {
 	position:relative;
 	padding-top: 7px;
 	padding-left: 7px;
@@ -40,11 +40,11 @@
 	-moz-box-shadow: #ccc 2px 2px 5px;
 }
 
-#accordion > article.cm_faq h3.entry-title {
+#accordion > article.cm_event h3.entry-title {
 	margin-top:0;
 }
 
-#accordion > article.cm_faq .grey-background {
+#accordion > article.cm_event .grey-background {
 	border:0;
 	border-bottom: 1px solid #ccc;
 	background-color:#eee;
@@ -52,29 +52,29 @@
 	padding-left: 5px;
 }
 
-#accordion > article.cm_faq .entry-title {
+#accordion > article.cm_event .entry-title {
 	font-size: 1em;
 	font-weight: normal;
 }
 
-#accordion > article.cm_faq .entry-title a {
+#accordion > article.cm_event .entry-title a {
 	max-width:100%;
 	padding-right:10px;
 }
 
-#accordion > article.cm_faq .entry-title .dashicons {
+#accordion > article.cm_event .entry-title .dashicons {
 	float:right;
 	margin-left:5px;
 }
 
-#accordion > article.cm_faq .entry-content.collapse {
+#accordion > article.cm_event .entry-content.collapse {
 	display: none;
 	opacity: 0;
 	padding-left:0;
 	transition: padding-left 200ms, opacity 200ms;
 }
 
-#accordion > article.cm_faq .entry-content.collapse.in {
+#accordion > article.cm_event .entry-content.collapse.in {
 	display: block;
   	opacity: 1;
 	padding-left: 5px;

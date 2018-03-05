@@ -22,12 +22,12 @@
 			// define the edit row
 			var $edit_row = $( '#edit-' + $post_id );
 			
-			// get the FAQ Order
-			var $cm_faq_order_value = $( '#cm_faq_order-' + $post_id ).text();
+			// get the Event Order
+			var $cm_event_order_value = $( '#cm_event_order-' + $post_id ).text();
 			
-			// set the FAQ Order
+			// set the Event Order
 			//$edit_row.find( 'select[name="_priority"]' ).val( $priority );
-			$edit_row.find( 'select[name="_cm_faq_order"] option[value="' + $cm_faq_order_value + '"]' ).prop( 'selected', true);
+			$edit_row.find( 'select[name="_cm_event_order"] option[value="' + $cm_event_order_value + '"]' ).prop( 'selected', true);
 			
 		}
 		
