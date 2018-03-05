@@ -1,2 +1,2 @@
-# event-plugin
-PHP event functionality plugin 
+# Event-plugin
+Event functionality plugin 
