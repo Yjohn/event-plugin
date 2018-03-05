@@ -34,4 +34,3 @@ Once you've installed the plugin, please refer to the [Quick How-To User Guide](
 
 
 If you find any issues with this plugin please let me know. Thank you!
-
