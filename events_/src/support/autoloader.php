@@ -22,9 +22,9 @@ namespace CarmeMias\EventsFunctionality\Support;
 function autoload_files( $src_root_dir ) {
 
 	$filenames = array(
-		 'cm-event-cpt-definition',
-		 'cm-event-shortcode',
-		 'cm-event-info-meta-box'
+		 'event_cpt_definition',
+		//  'event_cpt_shortcode',
+		//  'event_cpt_info_meta_box'
 	);
 
 	foreach( $filenames as $filename ) {

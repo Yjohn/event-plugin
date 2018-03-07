@@ -2,24 +2,24 @@
 /**
  * Event Functionality Custom Post Type.
  *
- * @package     carmemias\EventFunctionality
- * @author      carmemias
- * @copyright   2017 Carme Mias Studio
+ * @package     yohannes\EventFunctionality
+ * @author      yohannes
+ * @copyright   2018 Code your future
  * @license     GPL-2.0+
  *
  * @wordpress-plugin
  * Plugin Name: Event Functionality Custom Post Type
- * Plugin URI:  https://carmemias.com/
+ * Plugin URI:  https://github.com/CodeYourFuture/src-website/tree/master/plugins
  * Description: Adds a new Events section and custom post type.
  * Version:     1.0
- * Author:      carmemias
- * Author URI:  https://carmemias.com/
+ * Author:      yohannes
+ * Author URI:  https://codeyourfuture.io
  * Text Domain: events-functionality
  * License:     GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
-namespace carmemias\EventFunctionality;
+namespace yohannes\EventFunctionality;
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit( 'Access denied.' );
@@ -39,8 +39,8 @@ function init_constants() {
 	}
 
 	//OPTIMIZE using constants like these is not recommended by WP Theme review team
-	define( 'Event_FUNCTIONALITY_URL', $plugin_url );
-	define( 'Event_FUNCTIONALITY_DIR', plugin_dir_path( __DIR__ ) );
+	define( 'EVENT_FUNCTIONALITY_URL', $plugin_url );
+	define( 'EVENT_FUNCTIONALITY_DIR', plugin_dir_path( __DIR__ ) );
 }
 
 /**
@@ -65,7 +65,7 @@ function init_hooks() {
 function flush_rewrites() {
 	init_autoloader();
 
-	src\cm_event_cpt();
+	src\event_cpt_functionality();
 
 	flush_rewrite_rules();
 }
